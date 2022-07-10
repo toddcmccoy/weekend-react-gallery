@@ -14,9 +14,13 @@ const handleImageDescription = () => {
 }
 };
 
-const likeImage = (id) => {
+const likeImage = (galleryItem, likes) => {
+    // let id = galleryItem.id;
+
+    // galleryItem.likes += 1;
+
     axios.put(
-    `/gallery/likes/:id`
+    (`/gallery/likes/${galleryItem.id}`, {likes: galleryItem.likes})
     ).then((response) => {
         getImages();
         console.log('Image is liked:', id);
@@ -33,7 +37,7 @@ return (
         <img onClick={handleImageDescription} src={galleryItem.path}/>
     )}
     <br></br>
-    <button data-id = {galleryItem.id} className = "like button" onClick={() => likeImage(galleryItem.id)}>Like!</button> 
+    <button className = "like button" onClick={() => likeImage()}>Like!</button> 
     <p>{galleryItem.likes} Likes</p>
 
 </div>

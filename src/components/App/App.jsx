@@ -35,7 +35,8 @@ function App() {
         <div>
           <GalleryList
           galleryList={galleryList} 
-          getGalleryList={getImages} 
+          getGalleryList={getImages}
+          imageLikes={imageLikes} 
           />
         </div>
       </div>
