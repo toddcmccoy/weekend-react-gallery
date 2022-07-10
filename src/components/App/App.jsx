@@ -7,7 +7,7 @@ import GalleryList from '../GalleryList/GalleryList.jsx'
 function App() {
 
   let [galleryList, setGalleryList] = useState([]);
-  // let [imageLikes, setImageLikes] = useState('');
+  let [imageLikes, setImageLikes] = useState('');
 
   useEffect(() => {
     getImages()

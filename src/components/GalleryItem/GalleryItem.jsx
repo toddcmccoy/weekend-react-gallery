@@ -16,7 +16,7 @@ const handleImageDescription = () => {
 
 const likeImage = (id) => {
     axios.put(
-    `/gallery/${id}`
+    `/gallery/likes/:id`
     ).then((response) => {
         getImages();
         console.log('Image is liked:', id);
@@ -28,7 +28,7 @@ const likeImage = (id) => {
 return (
 <div>
     {hiddenDescription ? (
-        <h5 onClick={handleImageDescription}>{galleryItem.description}</h5>
+        <button className = 'desc_button' onClick={handleImageDescription}>{galleryItem.description}</button>
         ) : (
         <img onClick={handleImageDescription} src={galleryItem.path}/>
     )}
