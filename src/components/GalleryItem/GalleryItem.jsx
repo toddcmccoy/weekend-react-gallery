@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../App/App.css';
 
-function GalleryItem ({ galleryItem, getImages }) {
+function GalleryItem ({ galleryItem, likeImage}) {
 
 const [hiddenDescription, setHiddenDescription] = useState();
+// const [imageLikes, setImageLikes] = useState();
 
 const handleImageDescription = () => {
     if (hiddenDescription) {
@@ -14,20 +15,6 @@ const handleImageDescription = () => {
 }
 };
 
-const likeImage = (galleryItem, likes) => {
-    // let id = galleryItem.id;
-
-    // galleryItem.likes += 1;
-
-    axios.put(
-    (`/gallery/likes/${galleryItem.id}`, {likes: galleryItem.likes})
-    ).then((response) => {
-        getImages();
-        console.log('Image is liked:', id);
-    }).catch((error) => {
-        alert('Something went wrong in the PUT /gallery :(')
-    })
-};
 
 return (
 <div>
@@ -37,7 +24,7 @@ return (
         <img onClick={handleImageDescription} src={galleryItem.path}/>
     )}
     <br></br>
-    <button className = "like button" onClick={() => likeImage()}>Like!</button> 
+    <button className = "like button" onClick={() => likeImage(galleryItem)}>Like!</button> 
     <p>{galleryItem.likes} Likes</p>
 
 </div>

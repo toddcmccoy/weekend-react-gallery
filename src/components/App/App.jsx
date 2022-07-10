@@ -7,7 +7,6 @@ import GalleryList from '../GalleryList/GalleryList.jsx'
 function App() {
 
   let [galleryList, setGalleryList] = useState([]);
-  let [imageLikes, setImageLikes] = useState('');
 
   useEffect(() => {
     getImages()
@@ -24,6 +23,18 @@ function App() {
     })
   };
 
+  const likeImage = (galleryItem) => {
+    console.log('galleryItem.id', galleryItem.id);
+    axios.put(
+    (`/gallery/like/${galleryItem.id}`)
+    ).then(() => {
+        console.log('galleryItem.likes', galleryItem.likes)
+        getImages();
+    }).catch((error) => {
+        alert('Something went wrong in the PUT /gallery')
+    })
+};
+
 
 
     return (
@@ -36,7 +47,7 @@ function App() {
           <GalleryList
           galleryList={galleryList} 
           getGalleryList={getImages}
-          imageLikes={imageLikes} 
+          likeImage={likeImage} 
           />
         </div>
       </div>
