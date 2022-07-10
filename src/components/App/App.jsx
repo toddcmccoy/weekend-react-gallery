@@ -42,7 +42,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <h2>My Menagerie: past and present</h2>
+        <h2>My Home Zoo: past and present</h2>
         <div>
           <GalleryList
           galleryList={galleryList} 
