@@ -1,21 +1,21 @@
-import galleryItems from '../../../server/modules/gallery.data.js';
 import GalleryItem from '../GalleryItem/GalleryItem.jsx';
-import ListButtons from '../ListButtons/ListButtons.jsx';
 
-function GalleryList ({galleryList, likeItem) {
+
+function GalleryList ({galleryList, getImages}) {
   return (
+    
     <>
-    <div id="galleryList">
-        {galleryList.map(galleryItems =>
-        <GalleryItem 
-        key={galleryItems.id}
-        galleryItem={galleryItems.path}
-        likeItem={likeItem}
-        />
-        )}
-    </div>
+        {galleryList.map((galleryItem) => {
+        return (
+            <div className = 'img' key = {galleryItem.id}>
+                <GalleryItem 
+                galleryItem={galleryItem}
+                getImages={getImages}
+                />
+            </div>)
+    })}
     </>
   )
 };
 
-export default List;
+export default GalleryList;
