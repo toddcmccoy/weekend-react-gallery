@@ -1,3 +1,4 @@
+//collection of images and descriptions for the gallery
 const galleryItems = [
     { id: 1, path: 'images/floki-side-eye.jpg', description: 'Photo of our dog, Floki, giving me side eye.', likes: 0 },
     { id: 2, path: 'images/freyja-sleeve.jpg', description: 'Photo of our first ferret, Freyja. So much mischief.', likes: 0 },

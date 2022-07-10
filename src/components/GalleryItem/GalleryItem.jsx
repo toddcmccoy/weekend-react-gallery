@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState} from 'react';
 import '../App/App.css';
+
+
+// function to create the item for display in the gallery
+
 
 function GalleryItem ({ galleryItem, likeImage}) {
 
 const [hiddenDescription, setHiddenDescription] = useState();
-// const [imageLikes, setImageLikes] = useState();
+
+//ternary operator to toggle display of gallery image and image description
+// onClick to register and store likes
 
 const handleImageDescription = () => {
     if (hiddenDescription) {
@@ -14,7 +19,6 @@ const handleImageDescription = () => {
     setHiddenDescription(true);
 }
 };
-
 
 return (
 <div>
@@ -31,5 +35,5 @@ return (
     
 )
 };
-
+// end GalleryItem function
 export default GalleryItem;

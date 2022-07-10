@@ -1,3 +1,4 @@
+//importing necessary dependencies to ensure the page displays correctly
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
@@ -5,14 +6,14 @@ import GalleryList from '../GalleryList/GalleryList.jsx'
 
 
 function App() {
-
+//defining the gallery
   let [galleryList, setGalleryList] = useState([]);
 
   useEffect(() => {
     getImages()
   }, [])
 
-  //Get request
+  //Get request for images and descriptions
   const getImages = () => {
     axios.get('/gallery')
     .then((response) => {
@@ -22,7 +23,7 @@ function App() {
         console.log( 'error in GET /gallery', error)
     })
   };
-
+//Put request to register 'likes' for each image
   const likeImage = (galleryItem) => {
     console.log('galleryItem.id', galleryItem.id);
     axios.put(
@@ -40,9 +41,8 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
+          <h1 className="App-title">My Home Zoo: Past and Present</h1>
         </header>
-        <h2>My Home Zoo: past and present</h2>
         <div>
           <GalleryList
           galleryList={galleryList} 
