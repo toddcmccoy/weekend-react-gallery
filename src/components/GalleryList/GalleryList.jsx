@@ -11,7 +11,6 @@ function GalleryList ({galleryList, likeImage}) {
         return (
             <div className = 'img' key = {galleryItem.id} >
                 <GalleryItem
-              
                 galleryItem={galleryItem}
                 likeImage={likeImage}
                 />
