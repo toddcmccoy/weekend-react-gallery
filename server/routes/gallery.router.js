@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 });
 
 //? This route only handles the upload of the image
-router.post('/images', upload.single('image'), (req, res) => {
+router.post('./public/images', upload.single('image'), (req, res) => {
 	res.send('File uploaded successfully');
 });
 
@@ -49,7 +49,7 @@ router.put('/like/:id', (req, res) => {
 			res.send(result.rows);
 		})
 		.catch((error) => {
-			console.log('Error with get request', error);
+			console.log('Error with put request', error);
 			res.sendStatus(500);
 		});
 });
@@ -70,7 +70,31 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    res.send(galleryItems);
-}); // END GET Route
+    const queryText = 'SELECT * FROM "gallery" ORDER BY "id";';
+	pool
+		.query(queryText)
+		.then((result) => {
+			res.send(result.rows);
+		})
+		.catch((error) => {
+			console.log('Error with get request', error);
+			res.sendStatus(500);
+		});
+}); 
+// END GET Route
+
+router.delete('/:id', (req, res) => {
+	const galleryId = req.params.id;
+	const queryText = 'DELETE FROM "gallery" WHERE id = $1;';
+	pool
+		.query(queryText, [galleryId])
+		.then((result) => {
+			res.send(result.rows);
+		})
+		.catch((error) => {
+			console.log('Error with delete request', error);
+			res.sendStatus(500);
+		});
+});
 
 module.exports = router;
