@@ -2,7 +2,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
-import GalleryList from '../GalleryList/GalleryList.jsx'
+import GalleryList from '../GalleryList/GalleryList.jsx';
+import Form from '../Form/Form.jsx';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           likeImage={likeImage} 
           />
         </div>
+        <Form />
       </div>
     );
 }

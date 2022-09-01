@@ -20,11 +20,18 @@
   display: inline-block;
 }
 
+img {
+  height: 200px;
+  width: 200px;
+  margin: 16px;
+  display: inline-block;
+}
+
 .desc_button {
   height: 200px;
   width: 200px;
   font-family: fantasy;
-  font-size: 16pt;
+  font-size: relative;
   color: black;
   background-color: firebrick;
 }

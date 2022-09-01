@@ -5,7 +5,6 @@ const multer = require('multer');
 // const galleryItems = require('../modules/gallery.data');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
-//? required for file upload. Sets destination and name of the file
 const fileStorageEngine = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, './public/images');
@@ -25,16 +24,14 @@ router.post('/', (req, res) => {
 	pool
 		.query(queryText, [newImage.title, path, newImage.description])
 		.then((result) => {
-			// res.send(result.rows);
 		})
 		.catch((error) => {
 			console.log('Error with post request', error);
-			// res.sendStatus(500);
 		});
 });
 
-//? This route only handles the upload of the image
-router.post('./public/images', upload.single('image'), (req, res) => {
+// this is the route for the image
+router.post('/image', upload.single('image'), (req, res) => {
 	res.send('File uploaded successfully');
 });
 
